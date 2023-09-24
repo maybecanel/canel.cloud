@@ -101,9 +101,19 @@
             color: #333;
         }
 
+        .light-mode h2,
+        .light-mode p {
+            color: #333;
+        }
+
         /* Dark mode styles */
         .dark-mode {
             background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode h2,
+        .dark-mode p {
             color: #fff;
         }
 
@@ -119,6 +129,15 @@
             font-size: 24px;
             color: #333;
         }
+
+        /* About Me section styles */
+        .about-me {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body class="light-mode">
@@ -131,7 +150,7 @@
     <button class="mode-toggle" id="mode-toggle" onclick="toggleMode()">🌙</button>
 
     <!-- About Me section -->
-    <section>
+    <section class="about-me">
         <h2>About Me</h2>
         <p>Welcome to One Person Studios! I'm a passionate developer creating unique products just for you. Explore my collection of systems and grab the best deals.</p>
     </section>
