@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Person Studio</title>
+    <link rel="icon" href="DiscordServerIcon.jpg" type="image/jpg">
     <style>
-        /* Common styles for both modes */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -95,7 +95,6 @@
             padding: 10px;
         }
 
-        /* Light mode styles */
         .light-mode {
             background-color: #f8f8f8;
             color: #333;
@@ -117,7 +116,6 @@
             color: #fff;
         }
 
-        /* Toggle button styles */
         .mode-toggle {
             position: fixed;
             top: 20px;
@@ -130,7 +128,6 @@
             color: #333;
         }
 
-        /* About Me section styles */
         .about-me {
             background-color: #fff;
             padding: 20px;
@@ -138,10 +135,17 @@
             margin: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
+
+        .icon {
+            max-width: 50px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body class="light-mode">
     <header>
+        <img class="icon" src="DiscordServerIcon.jpg" alt="Website Icon"> <!-- Added website icon -->
         <h1>Welcome to One Person Studios</h1>
         <p>Discover my exclusive products and grab the best deals!</p>
     </header>
@@ -156,7 +160,6 @@
     </section>
 
     <main>
-        <!-- Product Cards (Replace with your product information) -->
         <div class="product-card">
             <img src="product1.jpg" alt="Product 1">
             <h2>Product 1</h2>
@@ -181,7 +184,6 @@
     </footer>
 
     <script>
-        // JavaScript for toggling dark and light mode
         function toggleMode() {
             const body = document.body;
             const modeToggle = document.getElementById("mode-toggle");
