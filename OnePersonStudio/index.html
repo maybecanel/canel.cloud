@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Person Studio</title>
-    <link rel="icon" href="DiscordServerIcon.jpg" type="image/jpg">
+    <link rel="icon" href="DiscordServerIcon.jpg" type="image/jpg"> <!-- Added website icon -->
     <style>
+        /* Common styles for both modes */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -95,13 +96,15 @@
             padding: 10px;
         }
 
+        /* Light mode styles */
         .light-mode {
             background-color: #f8f8f8;
             color: #333;
         }
 
         .light-mode h2,
-        .light-mode p {
+        .light-mode p,
+        .light-mode footer p { /* Adjusted footer text color */
             color: #333;
         }
 
@@ -112,10 +115,12 @@
         }
 
         .dark-mode h2,
-        .dark-mode p {
+        .dark-mode p,
+        .dark-mode footer p { /* Adjusted footer text color */
             color: #fff;
         }
 
+        /* Toggle button styles */
         .mode-toggle {
             position: fixed;
             top: 20px;
@@ -128,6 +133,7 @@
             color: #333;
         }
 
+        /* About Me section styles */
         .about-me {
             background-color: #fff;
             padding: 20px;
@@ -136,6 +142,7 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
+        /* Icon next to About Me */
         .icon {
             max-width: 50px;
             margin-right: 10px;
@@ -160,6 +167,7 @@
     </section>
 
     <main>
+        <!-- Product Cards (Replace with your product information) -->
         <div class="product-card">
             <img src="product1.jpg" alt="Product 1">
             <h2>Product 1</h2>
@@ -184,6 +192,7 @@
     </footer>
 
     <script>
+        // JavaScript for toggling dark and light mode
         function toggleMode() {
             const body = document.body;
             const modeToggle = document.getElementById("mode-toggle");
@@ -194,10 +203,4 @@
                 modeToggle.textContent = "☀️";
             } else {
                 body.classList.remove("dark-mode");
-                body.classList.add("light-mode");
-                modeToggle.textContent = "🌙";
-            }
-        }
-    </script>
-</body>
-</html>
+                body.classList
