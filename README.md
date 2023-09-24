@@ -2,3 +2,4 @@
 <br>
 <p>Hosted on my domain: (canel.cloud/[host])</p>
 <a href="https://canel.cloud/RedStore">- RedStore</a>
+<a href="https://canel.cloud/OnePersonStudio">- OnePersonStudio</a>
