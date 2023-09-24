@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Person Studio</title>
     <style>
-        /* Improved styling for the webpage */
+        /* Common styles for both modes */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
         }
 
         header {
@@ -94,20 +94,48 @@
             text-align: center;
             padding: 10px;
         }
+
+        /* Light mode styles */
+        .light-mode {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Toggle button styles */
+        .mode-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            color: #333;
+        }
     </style>
 </head>
-<body>
+<body class="light-mode">
     <header>
         <h1>Welcome to One Person Studios</h1>
         <p>Discover my exclusive products and grab the best deals!</p>
     </header>
 
+    <!-- Dark mode / light mode toggle button -->
+    <button class="mode-toggle" id="mode-toggle" onclick="toggleMode()">🌙</button>
+
     <!-- About Me section -->
     <section>
         <h2>About Me</h2>
-        <p>Welcome to One Person Studios! I'm a passionate developer creating unique products and systems just for you. Explore my collection of systems and grab the best deals.</p>
+        <p>Welcome to One Person Studios! I'm a passionate developer creating unique products just for you. Explore my collection of systems and grab the best deals.</p>
     </section>
-    
+
     <main>
         <!-- Product Cards (Replace with your product information) -->
         <div class="product-card">
@@ -133,7 +161,22 @@
         <p>&copy; 2023 One Person Studio</p>
     </footer>
 
-    <!-- Include your JavaScript file here -->
-    <script src="https://raw.githubusercontent.com/maybecanel/canel.cloud/main/OnePersonStudio/script.js"></script>
+    <script>
+        // JavaScript for toggling dark and light mode
+        function toggleMode() {
+            const body = document.body;
+            const modeToggle = document.getElementById("mode-toggle");
+
+            if (body.classList.contains("light-mode")) {
+                body.classList.remove("light-mode");
+                body.classList.add("dark-mode");
+                modeToggle.textContent = "☀️";
+            } else {
+                body.classList.remove("dark-mode");
+                body.classList.add("light-mode");
+                modeToggle.textContent = "🌙";
+            }
+        }
+    </script>
 </body>
 </html>
