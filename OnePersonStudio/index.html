@@ -31,13 +31,7 @@
 
         /* Add CSS for sliding effect */
         .section {
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.5s ease-out;
-        }
-        .section.active {
-            max-height: 1000px; /* Adjust this value to fit your content */
-            transition: max-height 0.5s ease-in;
+            display: none; /* Hide sections by default */
         }
     </style>
 </head>
@@ -105,19 +99,20 @@
     </section>
 
     <script>
-        // JavaScript to handle the sliding effect
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetSectionId = link.getAttribute('href').substr(1);
-                const targetSection = document.getElementById(targetSectionId);
-                const isActive = targetSection.classList.contains('active');
-                if (!isActive) {
-                    targetSection.classList.add('active');
-                } else {
-                    targetSection.classList.remove('active');
-                }
+        // JavaScript to handle smooth scrolling
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href').substring(1); // Get the target section ID
+                    const targetSection = document.getElementById(targetId); // Get the target section element
+
+                    // Scroll smoothly to the target section
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
             });
         });
     </script>
