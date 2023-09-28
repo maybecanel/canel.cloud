@@ -28,6 +28,17 @@
                 align-items: center; /* Center vertically */
             }
         }
+
+        /* Add CSS for sliding effect */
+        .section {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.5s ease-out;
+        }
+        .section.active {
+            max-height: 1000px; /* Adjust this value to fit your content */
+            transition: max-height 0.5s ease-in;
+        }
     </style>
 </head>
 
@@ -35,9 +46,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
         <div class="hero">
@@ -92,5 +103,23 @@
             <p>Alternatively, you can also contact me via email at <a href="mailto:cybrusher@gmail.com" class="custom-button">Contact via Gmail</a>.</p>
         </div>
     </section>
+
+    <script>
+        // JavaScript to handle the sliding effect
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetSectionId = link.getAttribute('href').substr(1);
+                const targetSection = document.getElementById(targetSectionId);
+                const isActive = targetSection.classList.contains('active');
+                if (!isActive) {
+                    targetSection.classList.add('active');
+                } else {
+                    targetSection.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
