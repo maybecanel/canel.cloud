@@ -28,11 +28,6 @@
                 align-items: center; /* Center vertically */
             }
         }
-
-        /* Add CSS for sliding effect */
-        .section {
-            display: none; /* Hide sections by default */
-        }
     </style>
 </head>
 
@@ -40,9 +35,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
         <div class="hero">
@@ -97,24 +92,5 @@
             <p>Alternatively, you can also contact me via email at <a href="mailto:cybrusher@gmail.com" class="custom-button">Contact via Gmail</a>.</p>
         </div>
     </section>
-
-    <script>
-        // JavaScript to handle smooth scrolling
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll('.nav-link').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href').substring(1); // Get the target section ID
-                    const targetSection = document.getElementById(targetId); // Get the target section element
-
-                    // Scroll smoothly to the target section
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 </html>
