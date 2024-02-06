@@ -1,0 +1,29 @@
+<head>
+    <title>iGetMusic</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/-icon" href="assets/images/iGetMusic.png">
+</head>
+<body>
+    <div class="download">
+        <img id="logoImg" src="assets/images/iGetMusic.png">
+        <h1 id="title">iGetMusic</h1>
+        <p>Developed by whoscanel</p>
+        <a href="./assets/files/iGetMusic.zip" download="iGetMusic.zip">Download</a>
+    </div>
+
+    <script>
+        document.getElementById('downloadButton').addEventListener('click', function() {
+          // Create an invisible anchor element
+          var downloadLink = document.createElement('a');
+          downloadLink.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent('This is the content of your file.'));
+          downloadLink.setAttribute('download', 'example.txt');
+          
+          // Trigger the download
+          downloadLink.style.display = 'none';
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+        });
+      </script>
+
+</body>
