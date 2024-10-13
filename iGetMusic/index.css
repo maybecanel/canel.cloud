@@ -1,0 +1,142 @@
+body {
+    background-color: #131414;
+}
+
+.main {
+    padding-top: 100px;
+    text-align: center;
+    display: flex;              /* Enable flexbox */
+    flex-direction: column;     /* Align items in a column */
+    align-items: center;        /* Center items horizontally */
+}
+#title {
+    color: white;
+    font-size: 45px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 0px;
+}
+
+#devcredits {
+    margin-top: 0px;
+    color: rgb(224, 220, 220);
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#logo{
+    width: 160px;
+}
+ 
+.vididall {
+    display: flex;               /* Enable flexbox */
+    justify-content: center;     /* Center items horizontally */
+    align-items: center;         /* Center items vertically */
+    gap: 10px;                  /* Space between input and button */
+}
+
+
+.input {
+    width: 100%;
+    max-width: 320px;
+    height: 45px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1.5px solid rgb(201, 194, 194);
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0px 14px 56px -11px #ffffff;
+  }
+  
+  .input:hover {
+    border: 2px solid rgb(201, 194, 194);
+    box-shadow: 0px 14px 56px -11px #ffffff;
+  }
+  
+  .input:active {
+    transform: scale(0.95);
+    box-shadow: 0px 14px 56px -11px #8f8d8d;
+  }
+  
+  .input:focus {
+    border: 2px solid rgb(201, 194, 194);
+  }
+
+
+
+.button {
+    padding-left: 50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: inline-block;
+    border-radius: 7px;
+    border: none;
+    background: #ff1818;
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    box-shadow: 0px 14px 56px -11px #ff4618;
+    width: 10em;
+    padding: 1em;
+    transition: all 0.4s;
+    cursor: pointer;
+   }
+   
+   .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+   }
+   
+   .button span:after {
+    content: 'mp3';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.7s;
+   }
+   
+   .button:hover span {
+    padding-right: 3.55em;
+   }
+   
+   .button:hover span:after {
+    opacity: 4;
+    right: 0;
+   }
+
+   .button:active {
+    transform: scale(0.90);
+   }
+
+
+
+/* From Uiverse.io by myselfvenky */ 
+.spinner {
+    margin-top: 2%;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: rgb(255, 14, 14);
+    display: grid;
+    place-items: center;
+    animation: zoomin 1.5s infinite alternate-reverse;
+    position: relative;
+   }
+   
+   .inner {
+    background-color: #ffffff;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+   }
+   
+   @keyframes zoomin {
+    0% {
+     transform: scale(1);
+    }
+   
+    100% {
+     transform: scale(1.5);
+    }
+   }
