@@ -3,17 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automatic Download</title>
-    <script type="text/javascript">
-        window.onload = function() {
-            window.location.href = "itms-services://?action=download-manifest&url=https%3A%2F%2Fbalancer.usescarlet.com%2Fassets%2Forg.fc04bc19-79dc-4502-9e62-4d9b466b0442.plist";
-        };
-    </script>
+    <title>Scarlet Payload</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+        }
+
+        #terminal {
+            background-color: black;
+            padding: 20px;
+            border-radius: 5px;
+            height: 300px;
+            overflow-y: auto;
+            font-size: 16px;
+            white-space: pre-wrap;
+        }
+
+        .log {
+            margin: 0;
+            padding: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>If the page does not redirect automatically, click the link below:</h1>
-    <a href="itms-services://?action=download-manifest&url=https%3A%2F%2Fbalancer.usescarlet.com%2Fassets%2Forg.fc04bc19-79dc-4502-9e62-4d9b466b0442.plist">
-        Run Payload
-    </a>
+
+    <div id="terminal">
+        <p class="log">Initializing...</p>
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            const terminal = document.getElementById("terminal");
+
+            function isAppleDevice() {
+                const userAgent = navigator.userAgent.toLowerCase();
+                return /iphone|ipod|ipad|macintosh/.test(userAgent);
+            }
+
+            function logMessage(message, delay) {
+                setTimeout(function() {
+                    const p = document.createElement('p');
+                    p.className = 'log';
+                    p.textContent = message;
+                    terminal.appendChild(p);
+                    terminal.scrollTop = terminal.scrollHeight;
+                }, delay);
+            }
+
+            function getDeviceInfo() {
+                const platform = navigator.platform;
+                const userAgent = navigator.userAgent;
+                const screenSize = `${window.innerWidth}x${window.innerHeight}`;
+                return `Platform: ${platform}\nUser Agent: ${userAgent}\nScreen Size: ${screenSize}`;
+            }
+
+            logMessage("[✅] Scarlet Payload by whoscanel", 5000);
+
+            if (isAppleDevice()) {
+                logMessage("[ℹ] Apple device detected. Proceeding with payload.", 6000);
+                logMessage("Device Info: ", 7000);
+                logMessage(getDeviceInfo(), 6000);
+                logMessage("[ℹ] [RESTRICTED]/api/v2/getManifest", 7000);
+                logMessage("[ℹ] [RESTRICTED]/api/v2/userAgent/infoCheck", 7200);
+                logMessage("[ℹ] [RESTRICTED]/api/v2/iDevice/sendInfo", 7300);
+                logMessage("[ℹ] [RESTRICTED]/api/v2/payload/install/request\n", 8000);
+                logMessage("[ℹ] Sending Payload Request...", 12000);
+                logMessage("[✅] Send Payload Request...", 15000);
+
+                setTimeout(function() {
+                    window.location.href = "itms-services://?action=download-manifest&url=https%3A%2F%2Fbalancer.usescarlet.com%2Fassets%2Forg.fc04bc19-79dc-4502-9e62-4d9b466b0442.plist";
+                }, 15000);
+            } else {
+                logMessage("[❌] Non-Apple device detected. Payload cannot be installed.", 6000);
+                logMessage("Device Info: ", 6000);
+                logMessage(getDeviceInfo(), 6000);
+            }
+        };
+    </script>
+
 </body>
 </html>
