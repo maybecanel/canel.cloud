@@ -1,87 +1,329 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;" lang="de"><head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Hi, my name is, , MY_PROJECTS, ABOUT_ME, , RoOpt+, ">
-    <meta name="description" content="">
-    <title>Canel</title>
-    <link rel="stylesheet" href="canel.css" media="screen">
-<link rel="stylesheet" href="index.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="canel.js" defer=""></script>
-    <link rel="icon" href="images/profilepicture.png">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i">
-    
-    
-    
-    
-    
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "Canel"
-}</script>
-    <meta name="theme-color" content="#219dff">
-    <meta property="og:title" content="Canel">
-    <meta property="og:description" content="Hi, my name is Canel!">
-    <meta property="og:image" content="https://i.imgur.com/HFtNj6O.png"/>
-    <meta property="og:type" content="website">
+    <title>whoscanel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a23 0%, #1a1a3e 50%, #2d1b69 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 35, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .logo::before {
+            content: "∞";
+            color: #8b5cf6;
+            font-size: 24px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 120px 40px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-right: 40px;
+            position: relative;
+        }
+
+        .hero-image::before {
+            content: "👨‍💻";
+            font-size: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .name {
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .title {
+            color: #a78bfa;
+        }
+
+        .hero p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #8b5cf6, #3b82f6);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+        }
+
+        .services {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .services-subtitle {
+            color: #cbd5e1;
+            margin-bottom: 60px;
+            font-size: 16px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #8b5cf6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-card p {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 15px 20px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 100px 20px 60px;
+            }
+
+            .hero-image {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .services {
+                padding: 60px 20px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
-  <body data-home-page="index.html" data-home-page-title="Startseite" data-path-to-root="./" class="u-body u-xl-mode" data-lang="de">
-  <script>
-    // Fetch the user's IP
-    fetch('https://api64.ipify.org?format=json')
-      .then(response => response.json())
-      .then(data => {
-        // Send the IP to the Discord webhook
-        fetch('https://discord.com/api/webhooks/1206631550641508463/kYRusijrGBYy7YcCcWrbyyndU1A0QNEupAi5af3a3lvtH4vaW-8CORxhiWv_460UeWoc', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            content: `New visitor IP: ${data.ip}`,
-          }),
+<body>
+    <header class="header">
+        <div class="logo">whoscanel</div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Hey, I'm <span class="name">Canel</span>✨<br>A <span class="title">Software Developer</span></h1>
+            <p>A 16 year old from Germany that's passionate about coding</p>
+            
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">📧 My Projects</a>
+            </div>
+        </div>
+        <div class="hero-image"></div>
+    </section>
+
+    <section class="services" id="services">
+        <h2>My Projects</h2>
+        <p class="services-subtitle">Here are some featured projects i have worked on</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Luminate</h3>
+                <p>Luminate Launcher is not just a launcher, its a full experience!<br>
+                    Prepare yourself and your phone for a new look.<br>
+                    Say goodbye to your normal phones look, give your phone a smooth and silk look with Luminate!</p>
+                <a href="https://luminateos.com" class="btn btn-primary" style="display: inline-block; margin-top: 15px;">Website</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div>
+            <strong>whoscanel</strong><br>
+            📍 Germany<br><br>
+            © 2025 whoscanel. All rights are reserved.
+        </div>
+        <div>
+            <strong>Made by whoscanel with ❤</strong>
+            <div class="footer-links">
+                <a href="https://github.com/maybecanel">GitHub</a>
+                <a href="https://discord.com/users/1128734664689975398">Discord</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
-      })
-      .catch(err => console.error('Error:', err));
-  </script>	  
-    <section class="u-black u-clearfix u-section-1" id="sec-718b">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-align-center u-custom-font u-font-source-sans-pro u-text u-text-1">Hi, my name is</h1>
-        <h1 class="u-align-center u-custom-font u-font-source-sans-pro u-text u-text-custom-color-1 u-text-2">
-          <span class="u-text-palette-1-base">&lt;/</span>CANEL<span class="u-text-palette-1-base">&gt;</span>
-        </h1>
-        <a href="index.html#sec-e35e" class="u-active-none u-border-none u-btn u-button-style u-custom-font u-font-courier-new u-hover-none u-none u-btn-1">MY_PROJECTS</a>
-        <a href="index.
-	html#sec-2635" class="u-active-none u-border-none u-btn u-button-style u-custom-font u-font-courier-new u-hover-none u-none u-btn-2">ABOUT_ME</a>
-      </div>
-    </section>
-    <section class="u-clearfix u-gradient u-section-2" id="sec-e35e">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h1 class="u-align-center u-custom-font u-font-source-sans-pro u-text u-text-body-alt-color u-text-1">
-          <span class="u-text-grey-40">&lt;/</span>MY_PROJECTS<span class="u-text-grey-40">&gt;</span>
-        </h1>
-        <div class="u-border-2 u-border-white u-shape u-shape-rectangle u-shape-1"></div>
-        <div class="u-grey-80 u-shape u-shape-rectangle u-shape-2"></div>
-        <img class="u-image u-image-contain u-image-default u-preserve-proportions u-image-1" src="images/RoOptLogo_NoBackground.png" alt="" data-image-width="1080" data-image-height="1080">
-        <h1 class="u-custom-font u-font-source-sans-pro u-text u-text-body-alt-color u-text-default u-title u-text-2">RoOpt+</h1>
-        <div class="u-border-3 u-border-white u-line u-line-horizontal u-line-1"></div><span class="u-file-icon u-icon u-text-white u-icon-1" data-href="https://github.com/maybecanel/RoOpt"><img src="images/2111432-a423d69f.png" alt=""></span>
-      </div>
-    </section>
-    <section class="u-clearfix u-gradient u-section-3" id="sec-2635">
-      <div class="u-clearfix u-sheet u-valign-middle-lg u-sheet-1">
-        <div class="u-border-3 u-border-white u-line u-line-vertical u-line-1"></div>
-        <h1 class="u-align-center u-custom-font u-font-source-sans-pro u-text u-text-body-alt-color u-text-1">
-          <span class="u-text-grey-40">&lt;/</span>ABOUT_ME<span class="u-text-grey-40">&gt;</span>
-        </h1>
-        <div class="u-border-2 u-border-white u-shape u-shape-rectangle u-shape-1"></div>
-        <img class="u-image u-image-default u-preserve-proportions u-image-1" src="images/profilepicture.png?rand=e3e7" alt="" data-image-width="460" data-image-height="460">
-        <p class="u-small-text u-text u-text-body-alt-color u-text-variant u-text-2"> Hi there, I'm Canel! I'm a 16-year-old from Germany who loves coding, making videos, and graphic-designing!<br>
-        </p><span class="u-file-icon u-icon u-text-white u-icon-1" data-href="https://github.com/maybecanel"><img src="images/2111432-a423d69f.png" alt=""></span>
-        <a href="Startseite.html#sec-e35e" class="u-active-none u-border-none u-btn u-button-style u-custom-font u-font-courier-new u-hover-none u-none u-text-body-alt-color u-btn-1">MY_PROJECTS</a>
-      </div>
-    </section>
-  
-</body></html>
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 35, 0.95)';
+            } else {
+                header.style.background = 'rgba(10, 10, 35, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
