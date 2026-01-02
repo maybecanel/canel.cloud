@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spoofer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+    <div id="content" class="text-center">
+        <h1 class="text-4xl font-bold mb-8">Spoof via USB</h1>
+        <button id="spoofButton" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Patch Spoof via USB ADB
+        </button>
+    </div>
+    <script>
+        document.getElementById('spoofButton').addEventListener('click', function() {
+            this.textContent = 'Loading...';
+            this.disabled = true;
+            const consoleDiv = document.createElement('div');
+            consoleDiv.className = 'mt-4 bg-black text-green-400 p-4 rounded font-mono text-sm max-h-40 overflow-y-auto';
+            consoleDiv.id = 'console';
+            document.getElementById('content').appendChild(consoleDiv);
+            const lines = [
+                'Connecting to ADB...',
+                'Detecting Android device...',
+                'Spoofing IMEI...',
+                'Injecting payload...',
+                'Verifying spoof integrity...',
+                'Finalizing spoof...'
+            ];
+            let index = 0;
+            const interval = setInterval(() => {
+                if (index < lines.length) {
+                    consoleDiv.textContent += lines[index] + '\n';
+                    index++;
+                }
+            }, 800);
+            setTimeout(() => {
+                clearInterval(interval);
+                document.getElementById('content').innerHTML = '<p class="text-2xl font-bold">Your android device is too old. This method doesnt work</p>';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
